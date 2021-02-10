@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% from "_renders.html" import render_field %}
+
+{% block title %}Register{% endblock %}
+
+{% block css %}
+<style type="text/css">
+	.brand {
+		width: 90px;
+		height: 90px;
+		overflow: hidden;
+		margin: 40px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.brand img {
+		width: 100%;
+	}
+
+	.card-wrapper {
+		width: 400px;
+	}
+
+	.card {
+		border-color: transparent;
+		box-shadow: 0 4px 8px rgba(0,0,0,.05);
+	}
+
+	.card .fat {
+		padding: 10px;
+	}
+
+	.card .card-title {
+		margin-bottom: 30px;
+	}
+
+	.btn .btn-block {
+		padding: 12px 10px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="card-wrapper">
+			<div class="row justify-content-center">
+				<div class="brand">
+					<img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+				</div>
+			</div>
+			<div class="card fat">
+				<div class="card-body">
+					<div class="card-title text-center">
+						<div class="h4"><strong>Register</strong></div>
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-10 offset-1">
+							{% include 'messages.html' %}
+							<form method="post" action="">
+								{% for field in form %}
+									{{ render_field(field) }}
+								{% endfor %}
+								<div class="form-group m-0">
+									<button class="btn btn-primary btn-block" type="submit">
+										<i class="fa fa-user-plus"></i> Register
+									</button>
+									<a class="btn btn-secondary btn-block" href="{{ url_for('auth.login') }}">
+										<i class="fa fa-sign-in"></i> Login
+									</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

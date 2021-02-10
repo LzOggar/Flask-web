@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<a href="{{ url_for('dashboard.index') }}" class="navbar-brand"><img src="{{ url_for('static', filename='images/logo.png') }}" width="35" height="35"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a href="" class="nav-link"></a>
+			</li>
+			<li class="nav-item">
+				<a href="" class="nav-link"></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav">
+			<div class="btn-group">
+				<button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-user"></i> {{ current_user.username }}
+				</button>
+				<div class="dropdown-menu dropdown-menu-right">
+					<a class="dropdown-item" href="{{ url_for('auth.logout') }}"><span class="fa fa-sign-out"></span> Logout</a>
+				</div>
+			</div>
+		</ul>
+	</div>
+</nav>
+{% endblock %}
