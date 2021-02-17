@@ -48,7 +48,6 @@ def register():
 	form = forms.Register()
 
 	if form.validate_on_submit():
-		error = None
 		username = clean(form.username.data, tags=[], strip=True)
 		password = clean(form.password.data, tags=[], strip=True)
 		confirm_password = clean(form.confirm_password.data, tags=[], strip=True)
